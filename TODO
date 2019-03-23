@@ -1,0 +1,21 @@
+Install Ubuntu 18.04. Always use UEFI when avalible. Create efi partition (~650 MB), create root partition and mount it on / (~500 GB, or at least 300 GB), create SWAP (optional, twice as big as RAM).
+
+If laptop, install WIFI drivers. Check rltwifi_new (Realtek drivers) git clone https://github.com/lwfinger/rtlwifi_new.git
+
+Update the system:
+sudo apt update && sudo apt upgrade
+
+Install utilities for compiling from source:
+sudo apt install linux-headers-generic build-essential git
+
+Install tweaks:
+sudo apt install gnome-tweak-tool
+
+Install Gnome extensions: AlternateTab, Caffeine, Clipboard Indicatior, Drop Down Terminal, Impatience, Screenshot tool, Show desktop from overview, system-monitor, Top Panel Workspace Scroll:
+sudo apt install chrome-gnome-shell
+
+
+
+Change the Ubuntu left bar for the traditional Gnome left bar.
+
+
