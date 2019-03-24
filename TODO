@@ -1,6 +1,9 @@
 Install Ubuntu 18.04. Always use UEFI when avalible. Create efi partition (~650 MB), create root partition and mount it on / (~500 GB, or at least 300 GB), create SWAP (optional, twice as big as RAM).
 
-If laptop, install WIFI drivers. Check rltwifi_new (Realtek drivers) git clone https://github.com/lwfinger/rtlwifi_new.git
+Open "Software & Updates" and add check all official repositories and install proprietary drivers if needed.
+
+If laptop, install WIFI drivers. Check rltwifi_new (Realtek drivers):
+git clone https://github.com/lwfinger/rtlwifi_new.git
 
 Update the system:
 sudo apt update && sudo apt upgrade
@@ -8,14 +11,52 @@ sudo apt update && sudo apt upgrade
 Install utilities for compiling from source:
 sudo apt install linux-headers-generic build-essential git
 
-Install tweaks:
-sudo apt install gnome-tweak-tool
+Install tweaks and dconf-editor:
+sudo apt install gnome-tweak-tool dconf-editor
 
-Install Gnome extensions: AlternateTab, Caffeine, Clipboard Indicatior, Drop Down Terminal, Impatience, Screenshot tool, Show desktop from overview, system-monitor, Top Panel Workspace Scroll:
+Install Gnome extensions: AlternateTab, Caffeine, Clipboard Indicatior, Drop Down Terminal, Impatience, Screenshot tool, Show desktop from overview, system-monitor, Top Panel Workspace Scroll, wallpaper changer:
 sudo apt install chrome-gnome-shell
+sudo apt-get install gir1.2-cogl-1.0 gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  (system-monitor)
+
+
+Some changes to shell: open dconf-editor, go to org/gnome/shell/extensions/dash-to-dock and explore the properties.
+
+Install a Latex distribution (takes time, 4GB) and Texmaker:
+sudo apt install texlive-full texmaker
+
+Delete Amazon app and things like that:
+sudo apt purge ubuntu-web-launchers
+
+Install restricted extras:
+sudo apt install ubuntu-restricted-extras
+
+Copy .bashrc and .inputrc files from backup. Also must install:
+sudo apt install cowsay fortune-mod
+
+Download and install anaconda3. Remember adding the path in .bashrc.
+
+Install pip and thefuck:
+conda install pip
+pip install thefuck
+
+Install python 2.7 just in case:
+conda create --name py2 python=2.7 numpy matplotlib
+
+Install IRAF. This can be IRAF 2.16v from NOAO or the community version (possibly harder to install but better).
+For the community version: download the latest stable build in the IRAF-community github repository.
+sudo apt-get install tcsh libxss1 lib32z1 lib32ncurses5 libbz2-1.0:i386 libxmu6:i386
+Follow the documentation to install IRAF.
+Download binaries for x11IRAF and install them (using tcsh) or compile them from source (last resource).
+Download binaries for ds9 (do not use version 7.6).
+Download more IRAF packages. (The extern folder in the IRAF directory still has the installation script. However, it seems that NOAO has dropped development. Finding a mirror or compiling from source seems to be the only way).
 
 
 
-Change the Ubuntu left bar for the traditional Gnome left bar.
+
+
+
+
+
+
 
 
