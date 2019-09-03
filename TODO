@@ -30,25 +30,42 @@ sudo apt purge ubuntu-web-launchers
 Install restricted extras:
 sudo apt install ubuntu-restricted-extras
 
+Add Nautilus type ahead:
+sudo add-apt-repository ppa:lubomir-brindza/nautilus-typeahead
+sudo apt dist-upgrade
+nautilus -r
+
 Copy .bashrc and .inputrc files from backup. Also must install:
 sudo apt install cowsay fortune-mod
 
 Download and install anaconda3. Remember adding the path in .bashrc.
 
-Install pip and thefuck:
+Install pip, thefuck and tcsh:
 conda install pip
 pip install thefuck
 
 Install python 2.7 just in case:
 conda create --name py2 python=2.7 numpy matplotlib
 
-Install IRAF. This can be IRAF 2.16v from NOAO or the community version (possibly harder to install but better).
+Install IRAF from the debian repositories, along with the debian astronomy packages. 
+sudo apt install astro-all
+sudo apt install iraf python3-pyraf
+The ds9 binaries can be downloaded from the dao website:
+http://ds9.si.edu/site/Download.html
+To install them, simply copy the ds9 file to /usr/bin/
+Alternatively, the astro-iraf package is on testing, along with the astro-all=2.0 package. It may be easier simply adding testing to the source list and install everything (keep in mind that ds9 has to be version 8 or higher, and therefore might be easier simply also install the binaries manually) using:
+sudo apt install astro-all=2.0
+Download binaries for x11IRAF and install them (using tcsh) or compile them from source (last resource). https://github.com/iraf-community/x11iraf
+sudo apt-get install tcsh libxss1 lib32z1 lib32ncurses5 libbz2-1.0:i386 libxmu6:i386
+
+(This is no longer necessary as there is an official debian package) Install IRAF. This can be IRAF 2.16v from NOAO or the community version (possibly harder to install but better).
 For the community version: download the latest stable build in the IRAF-community github repository.
 sudo apt-get install tcsh libxss1 lib32z1 lib32ncurses5 libbz2-1.0:i386 libxmu6:i386
 Follow the documentation to install IRAF.
-Download binaries for x11IRAF and install them (using tcsh) or compile them from source (last resource).
-Download binaries for ds9 (do not use version 7.6).
+Download binaries for x11IRAF and install them (using tcsh) or compile them from source (last resource). https://github.com/iraf-community/x11iraf
+Download binaries for ds9 (do not use version 8 or higher).
 Download more IRAF packages. (The extern folder in the IRAF directory still has the installation script. However, it seems that NOAO has dropped development. Finding a mirror or compiling from source seems to be the only way).
+
 
 
 
